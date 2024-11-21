@@ -2,7 +2,8 @@ version: '3'
 services:
   graph-node-lux:
     network_mode: host
-    image: graphprotocol/graph-node
+    image: ghcr.io/luxfi/graph-node:latest
+    container_name: graph-node-lux
     ports:
       - '8000:8000'  # GraphQL Query endpoint
       - '8001:8001'  # GraphQL Subscription endpoint
