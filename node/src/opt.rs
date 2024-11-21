@@ -129,7 +129,8 @@ pub struct Opt {
         long,
         default_value = "8030",
         value_name = "PORT",
-        help = "Port for the index node server"
+        help = "Port for the index node server",
+        env = "GRAPH_GRAPHQL_INDEX_PORT"
     )]
     pub index_node_port: u16,
     #[clap(
@@ -144,14 +145,16 @@ pub struct Opt {
         long,
         default_value = "8020",
         value_name = "PORT",
-        help = "Port for the JSON-RPC admin server"
+        help = "Port for the JSON-RPC admin server",
+        env = "GRAPH_GRAPHQL_ADMIN_PORT"
     )]
     pub admin_port: u16,
     #[clap(
         long,
         default_value = "8040",
         value_name = "PORT",
-        help = "Port for the Prometheus metrics server"
+        help = "Port for the Prometheus metrics server",
+        env = "GRAPH_GRAPHQL_METRICS_PORT"
     )]
     pub metrics_port: u16,
     #[clap(
