@@ -1,6 +1,6 @@
 version: '3'
 services:
-  graph-node:
+  graph-node-lux:
     network_mode: host
     image: graphprotocol/graph-node
     ports:
