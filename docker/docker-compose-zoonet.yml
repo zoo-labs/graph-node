@@ -13,7 +13,7 @@ services:
       - host.docker.internal:host-gateway
     environment:
       postgres_host: zoonet
-      postgres_user: zoo
+      postgres_user: lux
       postgres_pass: oi1dAc9bad8MSc2da51a2544f0cb8e16lb21A
       postgres_db: graph_zoonet
       ipfs: 'zoonet:5555'
