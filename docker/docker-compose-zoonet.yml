@@ -1,4 +1,3 @@
-version: '3'
 services:
   graph-node-zoo:
     container_name: graph-node-zoo

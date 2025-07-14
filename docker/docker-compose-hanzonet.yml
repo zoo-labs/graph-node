@@ -1,0 +1,21 @@
+services:
+  graph-node-hanzo:
+    container_name: graph-node-hanzo
+    image: ghcr.io/luxfi/graph-node:latest
+    ports:
+      - '8300:8000'  # GraphQL Query endpoint
+      - '8301:8001'  # GraphQL Subscription endpoint
+      - '8320:8020'  # Admin endpoint
+      - '8340:8040'  # Prometheus metrics endpoint
+    extra_hosts:
+      - hanzonet:192.168.1.99
+      - host.docker.internal:host-gateway
+    environment:
+      postgres_host: hanzonet
+      postgres_user: lux
+      postgres_pass: oi1dAc9bad8MSc2da51a2544f0cb8e16lb21A
+      postgres_db: graph_hanzonet
+      ipfs: 'hanzonet:5555'
+      ethereum: 'hanzo:http://hanzonet:8080'
+      GRAPH_LOG: debug
+      RUST_BACKTRACE: 1

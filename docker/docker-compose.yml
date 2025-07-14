@@ -1,13 +1,18 @@
-version: '3'
+networks:
+  default:
+    name: hanzo-graph-network
+    external: true
+
 services:
   graph-node:
     image: graphprotocol/graph-node
+    container_name: 'graph-node-hanzonet'
     ports:
-      - '8000:8000'
-      - '8001:8001'
-      - '8020:8020'
-      - '8030:8030'
-      - '8040:8040'
+      - '8300:8000'
+      - '8301:8001'
+      - '8320:8020'
+      - '8330:8030'
+      - '8340:8040'
     depends_on:
       - ipfs
       - postgres
@@ -19,18 +24,20 @@ services:
       postgres_pass: let-me-in
       postgres_db: graph-node
       ipfs: 'ipfs:5001'
-      ethereum: 'mainnet:http://host.docker.internal:8545'
+      ethereum: 'hanzonet:http://host.docker.internal:9650/ext/bc/hanzo/rpc'
       GRAPH_LOG: info
   ipfs:
     image: ipfs/kubo:v0.17.0
+    container_name: 'graph-node-hanzonet-ipfs'
     ports:
-      - '5001:5001'
+      - '5003:5001'
     volumes:
       - ./data/ipfs:/data/ipfs:Z
   postgres:
     image: postgres
+    container_name: 'graph-node-hanzonet-postgres'
     ports:
-      - '5432:5432'
+      - '5435:5432'
     command:
       [
         "postgres",

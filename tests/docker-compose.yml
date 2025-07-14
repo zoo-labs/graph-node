@@ -1,4 +1,3 @@
-version: '3'
 services:
   ipfs:
     image: docker.io/ipfs/kubo:v0.17.0
